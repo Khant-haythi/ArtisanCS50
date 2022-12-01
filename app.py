@@ -1,50 +1,30 @@
-import os
+from flask import Flask,session,render_template
+from flask_sqlalchemy import SQLAlchemy
 
-from cs50 import SQL
-from flask import Flask, flash, redirect, render_template, request, session
-from flask_session import Session
-from tempfile import mkdtemp
-from werkzeug.security import check_password_hash, generate_password_hash
-
-
-# Configure application
+# create the app
 app = Flask(__name__)
+# configure the SQLite database, relative to the app instance folder
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///Userinfo.db"
+db = SQLAlchemy(app)
+# initialize the app with the extension
+app.app_context().push()
 
-# Ensure templates are auto-reloaded
-app.config["TEMPLATES_AUTO_RELOAD"] = True
+
+#Define Model
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String, unique=True, nullable=False)
+    email = db.Column(db.String)
+    password = db.Column(db.String,nullable=False)
 
 
-@app.route("/register", methods=["GET", "POST"])
+
+@app.route('/')
+def homepage():
+    """Homepage"""
+    return render_template("index.html")
+    
+@app.route('/register')
 def register():
-    """Register user"""
-    # User reached route via POST (as by submitting a registration form via POST)
-    if request.method == "POST":
-        username = request.form.get("username")
-        password = request.form.get("password")
-        confirmation = request.form.get("confirmation")
-        # Ensure username was submitted
-        if not username:
-            return apology("must provide username", 400)
-        # Ensure password was submitted
-        elif not password:
-            return apology("must provide password", 400)
-
-        # Ensure confirmation was submitted
-        elif not confirmation:
-            return apology("must provide Confirmation!!", 400)
-
-        # Ensure password and Confirmation password are the same
-        if password != confirmation:
-            return apology("Your password is not match with the confirmation.Please try again")
-        hash = generate_password_hash(password)
-
-        # insert users into users table in database and tested the user is already exist
-        try:
-            db.execute("INSERT INTO users (username,hash) VALUES( ?, ?) ", username, hash)
-            return redirect("/")
-        except:
-            return apology("The Username is already taken!")
-
-    else:
-        return render_template("register.html")
-
+    "Register For Users"
+    return render_template("register.html")

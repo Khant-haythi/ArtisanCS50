@@ -1,4 +1,4 @@
-var images = ['wool.png','yarn2-removebg-preview.png','marnie-removebg-preview.png'];
+var images = ['/static/image/wool.png','/static/image/yarn2-removebg-preview.png','/static/image/marnie-removebg-preview.png'];
 var i=0;
 function slideShow(){
     document.getElementById("main").src=images[i];
