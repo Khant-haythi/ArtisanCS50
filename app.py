@@ -28,3 +28,8 @@ def homepage():
 def register():
     "Register For Users"
     return render_template("register.html")
+
+@app.route('/login')
+def login():
+    "Login For Users"
+    return render_template("login.html")

@@ -1,48 +1,56 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 
 {% block title %}
-    Register Page for Users
+    Register Page 
 {% endblock %}
 
 {% block main %}
+
+<section>
+  <div class="container ">
+    <div class="row justify-content-around">
     
-<h2 class="text-uppercase text-center mb-5">Registration</h2>
+      <div class= "col-6 alignform">  
+          <h3>Sign Up</h3>
+          <form>
 
-<form>
+            <div class="col-md-5 formpad">
+              <label for="name">
+                <i class="fa-sharp fa-solid fa-user"></i>
 
-  <div class="form-outline mb-4">
-    <input type="text" id="form3Example1cg" name="name"class="form-control form-control-lg" />
-    <label class="form-label" for="form3Example1cg">Your Name</label>
-  </div>
+              </label>
+              <input type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="Username" >
+            </div>
 
-  <div class="form-outline mb-4">
-    <input type="email" id="form3Example3cg"name="Email" class="form-control form-control-lg" />
-    <label class="form-label" for="form3Example3cg">Your Email</label>
-  </div>
+            <div class="col-md-5 formpad">
+              <input type="email" id="form3Example3cg" class="form-control form-control-lg" placeholder="Email" >
 
-  <div class="form-outline mb-4">
-    <input type="password" id="form3Example4cg" name="password" class="form-control form-control-lg" />
-    <label class="form-label" for="form3Example4cg">Password</label>
-  </div>
+            </div>
 
-  <div class="form-outline mb-4">
-    <input type="password" id="form3Example4cdg" name="confirmation" class="form-control form-control-lg" />
-    <label class="form-label" for="form3Example4cdg">Repeat your password</label>
-  </div>
+            <div class="col-md-5 formpad">
+              <input type="password" id="form3Example4cg" class="form-control form-control-lg" placeholder="Password" >
 
-  <div class="form-check d-flex justify-content-center mb-5">
-    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+            </div>
 
-  </div>
+            <div class="col-md-5 formpad">
+              <input type="password" id="form3Example4cdg" class="form-control form-control-lg" placeholder="Confimn Password">
 
-  <div class="d-flex justify-content-center">
-    <button type="button"
-      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
-  </div>
+            </div>
 
-  <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
-      class="fw-bold text-body"><u>Login here</u></a></p>
+          <div class="formpad">
+          <button type="button" class="button-56 buttonpad ">Register</button>
+        </div>
 
-</form>
+          <p class="text-left text-muted mt-5 mb-0">Have already an account? <a href="/login"
+              class="fw-bold text-body"><u>Login here</u></a></p>
+
+        </form>
+      </div>
+<div class="col-md-4">
+  <img src="" class="img-fluid imagepad" id="main">
+
+</div>
+</div>
+</section>
 
 {% endblock %}
