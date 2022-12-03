@@ -12,28 +12,23 @@
     
       <div class= "col-6 alignform">  
           <h3>Sign Up</h3>
-          <form>
+          <form action="/register" method="post">
 
             <div class="col-md-5 formpad">
               <label for="name">
                 <i class="fa-sharp fa-solid fa-user"></i>
 
               </label>
-              <input type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="Username" >
+              <input type="text" name="username"  class="form-control form-control-lg" placeholder="Username" required >
             </div>
 
             <div class="col-md-5 formpad">
-              <input type="email" id="form3Example3cg" class="form-control form-control-lg" placeholder="Email" >
-
-            </div>
-
-            <div class="col-md-5 formpad">
-              <input type="password" id="form3Example4cg" class="form-control form-control-lg" placeholder="Password" >
+              <input type="password" name="password"  class="form-control form-control-lg" placeholder="Password" required>
 
             </div>
 
             <div class="col-md-5 formpad">
-              <input type="password" id="form3Example4cdg" class="form-control form-control-lg" placeholder="Confimn Password">
+              <input type="password" name="confirmation" class="form-control form-control-lg" placeholder="Confimn Password">
 
             </div>
 

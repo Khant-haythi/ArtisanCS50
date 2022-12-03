@@ -4,8 +4,13 @@
     <head>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
-        <link href="static/styles.css" rel="stylesheet">
-        <title>Artisan</title>
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>
+            {% block title %}
+
+
+            {% endblock %}
+        </title>
 
     </head>
     <body>
@@ -18,10 +23,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto" >
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">HOME</a>
+              <a class="nav-link active" aria-current="page" href="/">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/templates/register.html">BLOG</a>
+              <a class="nav-link" href="/login">BLOG</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -38,26 +43,23 @@
               <a class="nav-link disabled">ABOUT</a>
             </li>
             <li class="nav_item">
-              <a class="nav-link " href="/register">LOG IN</a>
+              <a class="nav-link " href="/login">LOG IN</a>
             </li>
           </ul>
+          
 
           </div>
         </div>
-      </nav>
-      <div class="container">
-      <div class="row justify-content-between">
-        <div class="col-7 textpadding">
-          <p> Welcome From Artisan</p>
-          <h2> Let's Decorate the World with <span>Crafts</span></h2>
+      </nav>        
+        
+      {% block main %}
+      
 
-        </div>
-        <div class="col-md-4">
-          <img src="" class="img-fluid imagepad" id="main">
-        </div>
+      
+     
+      {% endblock %}
 
-      </div>
-      </div>
+      
       <script src="/static/style.js"></script>
 
 
