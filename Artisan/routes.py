@@ -1,6 +1,9 @@
 from Artisan import app
-from flask import render_template,request
+from flask import render_template,request,redirect,url_for,flash
 from Artisan.model import User
+from Artisan.form import RegisterForm
+from Artisan import db
+from werkzeug.security import check_password_hash, generate_password_hash
 
 @app.route('/')
 def homepage():
@@ -10,32 +13,20 @@ def homepage():
 @app.route("/register",methods=["GET", "POST"])
 def register():
     "Register For Users"
-    if request.method == "POST":
-        username = request.form.get("username")
-        password = request.form.get("password")
-        confirmation = request.form.get("confirmation")
-        # Ensure username was submitted
-        if not username:
-            flash ("Please enter username!!")
-        elif not password:
-            flash("Please enter password")
-        elif not confirmation:
-            flash("Please enter confirmation")
-        
-        if password != confirmation:
-            flash("Your password is not match with the confirmation.Please try again")
-
-        hash = generate_password_hash(password)
-        user = User(
-            username=request.form["username"],
-            password=generate_password_hash(request.form["password"]),
-        )
-        db.session.add(user)
+    form=RegisterForm()
+    if form.validate_on_submit():
+        user_to_create = User(username=form.username.data,
+                              password=generate_password_hash(form.password.data))
+        db.session.add(user_to_create)
         db.session.commit()
-        return redirect(url_for("user_detail", id=user.id))
+        
+        flash("Registration Successful")
+        return redirect(url_for('homepage'))
+       
+    
     else:
 
-        return render_template("register.html")
+        return render_template("register.html",form=form)
 
 @app.route('/login')
 def login():

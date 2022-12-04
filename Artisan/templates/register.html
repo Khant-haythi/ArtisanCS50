@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "layout.html" %}
 
 {% block title %}
     Register Page 
@@ -12,28 +12,26 @@
     
       <div class= "col-6 alignform">  
           <h3>Sign Up</h3>
-          <form action="/register" method="post">
+          <form action="/register" method="POST" class="form-register">
+            {{ form.hidden_tag() }}
 
-            <div class="col-md-5 formpad">
-              <label for="name">
-                <i class="fa-sharp fa-solid fa-user"></i>
-
-              </label>
-              <input type="text" name="username"  class="form-control form-control-lg" placeholder="Username" required >
+            <div class="col-md-6 formpad">
+              
+              {{ form.username(class="form-control",placeholder="Username")}}
             </div>
 
-            <div class="col-md-5 formpad">
-              <input type="password" name="password"  class="form-control form-control-lg" placeholder="Password" required>
-
+            <div class="col-md-6 formpad">
+              {{ form.password(class="form-control",placeholder="Password")}}
             </div>
 
-            <div class="col-md-5 formpad">
-              <input type="password" name="confirmation" class="form-control form-control-lg" placeholder="Confimn Password">
+            <div class="col-md-6 formpad">
+
+              {{ form.confirmation(class="form-control",placeholder="Confirmation")}}
 
             </div>
 
           <div class="formpad">
-          <button type="button" class="button-56 buttonpad ">Register</button>
+            {{ form.Register(class="btn button-56 buttonpad ")}} 
         </div>
 
           <p class="text-left text-muted mt-5 mb-0">Have already an account? <a href="/login"

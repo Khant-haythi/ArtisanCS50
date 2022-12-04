@@ -51,7 +51,13 @@
           </div>
         </div>
       </nav>        
-        
+      {% if get_flashed_messages() %}
+      <header>
+        <div class="alert alert-info mb-0 text-center" role="alert">
+            {{ get_flashed_messages() | join(" ") }}
+        </div>
+      </header>
+      {% endif %}
       {% block main %}
       
 
@@ -62,6 +68,11 @@
       
       <script src="/static/style.js"></script>
 
+      {% block modal%}
 
+      {% endblock %}
     </body>
+    {% block script %}
+
+    {% endblock %}
 </html>
