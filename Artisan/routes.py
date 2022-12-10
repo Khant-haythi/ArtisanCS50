@@ -56,3 +56,9 @@ def login():
 def crochet():
     "Crochet Page "
     return render_template('crochet.html')
+
+
+@app.route('/blog')
+def blog():
+    "Crochet Page "
+    return render_template('blog.html')
