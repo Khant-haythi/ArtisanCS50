@@ -2,6 +2,7 @@
 from Artisan import db,login_manager,bcrypt
 from flask_login import UserMixin
 from werkzeug.security import check_password_hash, generate_password_hash
+from datetime import datetime
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -19,3 +20,11 @@ class User(db.Model,UserMixin):
     
     def verify_password(self, attempted_password):
         return check_password_hash(self.password, attempted_password)
+
+#Create BLog Post
+class Posts(db.Model,UserMixin):
+    post_id = db.Column(db.Integer,primary_key=True)
+    title = db.Column(db.String(255))
+    content = db.Column(db.Text)
+    author = db.Column(db.String(255))
+    post_date = db.Column(db.DateTime,default=datetime.utcnow)

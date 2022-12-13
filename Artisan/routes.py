@@ -6,6 +6,7 @@ from Artisan import db
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import login_user
 from Artisan.__init__ import LoginManager
+import os
 
 @app.route('/')
 def homepage():
@@ -62,3 +63,20 @@ def crochet():
 def blog():
     "Crochet Page "
     return render_template('blog.html')
+
+@app.route('/createpost',methods=["GET", "POST"])
+def Create():
+    "Place to create posts for user "
+    if request.method=='POST':
+        upload_image=request.files['upload_image']
+
+        if upload_image.filename != '':
+            filepath=os.path.join(app.config['UPLOAD_FOLDER'],upload_image.filename)
+            print(filepath)
+            upload_image.save(filepath)
+            return render_template('creatpost.html',path=filepath)
+            flash(f'Image Upload Successfully',category='info')
+    return render_template('createpost.html')
+
+
+
