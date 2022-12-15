@@ -28,3 +28,8 @@ class Posts(db.Model,UserMixin):
     content = db.Column(db.Text)
     author = db.Column(db.String(255))
     post_date = db.Column(db.DateTime,default=datetime.utcnow)
+
+
+class Photos(db.Model,UserMixin):
+    image_id = db.Column (db.Integer,primary_key=True)
+    image_url = db.Column(db.String(255), nullable=False)
