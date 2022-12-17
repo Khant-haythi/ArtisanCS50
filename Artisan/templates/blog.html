@@ -5,42 +5,20 @@
 {% endblock %}
 
 {% block main %}
-
+    {% for card in cards %}
         <div class="card-group">
             <div class="row">
             <div class="col-sm-4">
             <div class="card" >
-            <img src="/static/image/Hat.jpg" class="card-img-top" alt="...">
+            <img src={{card.image_url}} class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Macrame</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">{{card.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{card.created_date}} <span>by {{card.author}}</span></h6>
+                    <p class="card-text">{{card.content}}</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
                 </div>
             </div>
             </div>
+    {% endfor %}     
             
-            <div class="col-sm-4">
-            <div class="card" >
-            <img src="/static/image/flower.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Bracelet</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4">
-            <div class="card" >
-            <img src="/static/image/wallMacrame.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Bracelet</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-   
 {% endblock %}

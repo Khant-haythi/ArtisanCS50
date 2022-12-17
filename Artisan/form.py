@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,PasswordField,SubmitField
+from wtforms import StringField,PasswordField,SubmitField,DateField,TextAreaField
 from wtforms.validators import Length,EqualTo,DataRequired
 from flask_wtf.file import FileField,FileAllowed
 
@@ -15,6 +15,10 @@ class LoginForm(FlaskForm):
     login = SubmitField(label='Log In')
 
 
-class UploadImageForm(FlaskForm):
-    photos = FileField("label=Upload Image")
-    submit =SubmitField(label="Upload")
+class BlogPostForm(FlaskForm):
+    title = StringField(label='title',validators=[DataRequired()])
+    content = TextAreaField(label='content',validators=[DataRequired()])
+    author = StringField(label='author',validators=[DataRequired()])
+    created_date = DateField(label='created_dae',validators=[DataRequired()])
+    image = StringField (label='image')
+    create = SubmitField(label='Create Post')

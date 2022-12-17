@@ -1,10 +1,10 @@
-from Artisan import app
+from Artisan import app,login_manager
 from flask import render_template,request,redirect,url_for,flash,send_from_directory,url_for
-from Artisan.model import User,Photos
-from Artisan.form import RegisterForm,LoginForm,UploadImageForm
+from Artisan.model import User,Cards
+from Artisan.form import RegisterForm,LoginForm,BlogPostForm
 from Artisan import db
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_login import login_user,current_user
+from flask_login import login_user,current_user,login_required
 from Artisan.__init__ import LoginManager
 import os
 
@@ -31,7 +31,9 @@ def register():
 
     return render_template("register.html",form=form)
 
-
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 
 @app.route('/login',methods=["GET", "POST"])
@@ -44,7 +46,7 @@ def login():
         if new_user and new_user.verify_password(attempted_password=form.password.data):
             login_user(new_user)
             flash(f'Logging In Successfully!',category='info')
-            return redirect(url_for('crochet'))
+            return redirect(url_for('createpost'))
         else:
             flash ('Username and Password are Incorrect.Please try again!!')
 
@@ -61,27 +63,34 @@ def crochet():
 
 @app.route('/blog')
 def blog():
-    "Crochet Page "
-    return render_template('blog.html')
+    "Blog Post Page "
+    #grab all the info from Cards database
+    cards = Cards.query.order_by(Cards.created_date)
+    return render_template('blog.html',cards=cards)
 
 def save_image(photo_file):
     photo_name = photo_file.filename
-    photo_path = os.path.join(app.config['UPLOAD_FOLDER']+ photo_name)
+    photo_path = os.path.join(app.config['UPLOAD_FOLDER'],photo_name)
     photo_file.save(photo_path)
-    return photo_path
+    return photo_name
 
-@app.route('/createpost',methods=["GET", "POST"])
-def Create():
-    "Place to create posts for user "
-    form = UploadImageForm()
+@app.route('/createpost',methods=["GET","POST"])
+@login_required
+def createpost():
+    "Create BLog Post Page "
+    form = BlogPostForm()
     if form.validate_on_submit():
-        image_path = save_image(form.photos.data)
-        image_name = form.photos.data.filename
-        print(image_path)
-        print(image_name)
-       
-        return redirect(url_for('Create',image_url=image_name))
-    
+        owned_user = current_user.id
+        title = form.title.data
+        content = form.content.data
+        author = form.author.data
+        created_date = form.created_date.data
+        image_name = save_image(form.image.data)
+        image_url = url_for('static',filename='image/'+image_name)
+
+        post = Cards(title=title,content=content,author=author,created_date=created_date,image_url=image_url,user_id=owned_user)
+
+        db.session.add(post)
+        db.session.commit()
+        flash(f'Creating Post Successful!!',category='info')
     return render_template('createpost.html',form=form)
-
-
