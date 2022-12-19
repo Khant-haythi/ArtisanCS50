@@ -1,5 +1,5 @@
 from Artisan import app,login_manager
-from flask import render_template,request,redirect,url_for,flash,send_from_directory,url_for
+from flask import render_template,request,redirect,url_for,flash,send_from_directory,url_for,session
 from Artisan.model import User,Cards
 from Artisan.form import RegisterForm,LoginForm,BlogPostForm
 from Artisan import db
@@ -7,6 +7,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import login_user,current_user,login_required
 from Artisan.__init__ import LoginManager
 import os
+
 
 @app.route('/')
 def homepage():
@@ -46,14 +47,23 @@ def login():
         if new_user and new_user.verify_password(attempted_password=form.password.data):
             login_user(new_user)
             flash(f'Logging In Successfully!',category='info')
-            return redirect(url_for('createpost'))
+            session["user_id"] = new_user.id
+            return redirect(url_for('blog'))
         else:
             flash ('Username and Password are Incorrect.Please try again!!')
 
 
     return render_template("login.html",form=form)
 
+@app.route("/logout")
+def logout():
+    """Log user out"""
 
+    # Forget any user_id
+    session.clear()
+
+    # Redirect user to login form
+    return redirect("/")
 
 @app.route('/crochet')
 def crochet():
@@ -94,3 +104,34 @@ def createpost():
         db.session.commit()
         flash(f'Creating Post Successful!!',category='info')
     return render_template('createpost.html',form=form)
+
+@app.route("/blog/delete/<int:id>", methods=["GET", "POST"])
+@login_required
+def deletePost(id):
+    post_delete = Cards.query.get_or_404(id)
+    id = current_user.id
+    if id == post_delete.owned_user.id:
+ 
+        try:
+            db.session.delete(post_delete)
+            db.session.commit()
+ 
+            #Reply Successful Message
+            flash(f'Blog Post Was Deleted!',category='warning')
+            cards = Cards.query.order_by(Cards.created_date)
+            return render_template('blog.html',cards=cards)
+ 
+ 
+        except:
+            #Reply Error Message
+            flash ( f'There was a Problem when deleting Post!!!',category='danger')
+            cards = Cards.query.order_by(Cards.created_date)
+            return render_template('blog.html',cards=cards)
+
+    else:
+        flash(f'Only Allowed User can delete this post!!',category='danger')
+        cards = Cards.query.order_by(Cards.created_date)
+        return render_template('blog.html',cards=cards)
+
+
+  

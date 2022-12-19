@@ -2,6 +2,7 @@ from flask import Flask,session,render_template,flash,request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
+from flask_session import Session
 import os
 
 # create the app

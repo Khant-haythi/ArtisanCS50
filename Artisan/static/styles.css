@@ -189,3 +189,7 @@ h3{
   width:300px;
   height:300px;
 }
+
+#wrapper{
+  column-gap: 20px;
+}
