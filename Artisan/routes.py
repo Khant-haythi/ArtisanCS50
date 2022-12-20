@@ -43,11 +43,11 @@ def login():
 
     form = LoginForm()
     if form.validate_on_submit():
-        new_user= User.query.filter_by(username=form.username.data).first()
-        if new_user and new_user.verify_password(attempted_password=form.password.data):
-            login_user(new_user)
+        register_user= User.query.filter_by(username=form.username.data).first()
+        if register_user and register_user.verify_password(attempted_password=form.password.data):
+            login_user(register_user)
             flash(f'Logging In Successfully!',category='info')
-            session["user_id"] = new_user.id
+            session["user_id"] = register_user.id
             return redirect(url_for('blog'))
         else:
             flash ('Username and Password are Incorrect.Please try again!!')

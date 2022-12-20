@@ -10,26 +10,20 @@
     <form action="/createpost" method="post" enctype="multipart/form-data" >
         {{ form.hidden_tag() }}
         <div class="col-md-6 ">
-          
           {{ form.title(class="form-control",placeholder="Enter Title")}}
         </div>
-
         <div class="col-md-6 formpad">
           {{ form.content(class="form-control",id="exampleFormControlTextarea1", rows="3",placeholder="Content")}}
-
         </div>
         <div class="col-md-6 formpad">
             {{ form.author(class="form-control",placeholder="Enter Your Name")}}
-  
         </div>
-
         <div class="col-md-6 formpad">
             <label for="formFile" class="form-label">Please Choose Your image that you want to upload</label>          
             {{ form.image(class="form-control-file",type="file", id="formFile",placeholder="Image")}}
           </div> 
         <div class="col-md-6 formpad">
             {{ form.created_date(class="form-control",placeholder="Content")}}
-  
         </div>
         <div class="formpad">
             {{ form.create(class="btn button-56 buttonpad ")}} 
