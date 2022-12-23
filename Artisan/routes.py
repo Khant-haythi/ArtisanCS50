@@ -167,7 +167,11 @@ def editPost(id):
         cards = Cards.query.order_by(Cards.created_date)
         return render_template('Blog.html',cards=cards)
             
-       
+#For Individual Blog Post Page
+@app.route('/blog/<int:id>')
+def showPost(id):
+    blogpost = Cards.query.get_or_404(id)
+    return render_template('blogPost.html',blogpost=blogpost)
 
     
         
