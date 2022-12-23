@@ -84,6 +84,7 @@ def save_image(photo_file):
     photo_file.save(photo_path)
     return photo_name
 
+#AddPost
 @app.route('/createpost',methods=["GET","POST"])
 @login_required
 def createpost():
@@ -133,5 +134,42 @@ def deletePost(id):
         cards = Cards.query.order_by(Cards.created_date)
         return render_template('blog.html',cards=cards)
 
+@app.route('/blog/edit/<int:id>',methods=["GET","POST"])
+@login_required
+def editPost(id):
+    updatecard = Cards.query.get_or_404(id)
+    form = BlogPostForm()
+    id = current_user.id
+    if form.validate_on_submit():
+        updatecard.title = form.title.data
+        updatecard.content = form.content.data
+        updatecard.author = form.author.data
+        updatecard.created_date = form.created_date.data
+        image_name = save_image(form.image.data)
+        updatecard.image_url = url_for('static',filename='image/'+image_name)
+
+        db.session.commit()
+        flash(f'Post Has Been Updated',category='warning')
+        return render_template('editPost.html',form=form,id=updatecard.card_id)
+
+    
+    if id == updatecard.owned_user.id:
+
+        form.title.data =  updatecard.title
+        form.content.data = updatecard.content
+        form.author.data = updatecard.author
+        form.created_date.data = updatecard.created_date
+        form.image.data = updatecard.image_url
+        return render_template('editPost.html',form=form,id=updatecard.card_id)
+
+    else:
+        flash(f'Only Allow User can Edit post',category='warning')
+        cards = Cards.query.order_by(Cards.created_date)
+        return render_template('Blog.html',cards=cards)
+            
+       
+
+    
+        
 
   

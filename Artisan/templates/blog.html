@@ -13,13 +13,13 @@
             {% for card in cards %}
             <div class="col-md-3 ">
             <div class="card box p-3 ">
-            <img src={{card.image_url}} class="card-img-top" alt="...">
+            <img src={{card.image_url}} class="card-img-top image-size" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{card.title}}</h5>
                     <h6 class="card-subtitle mb-2 ">Created at {{card.created_date}} <span>by {{card.author}}</span></h6>
                     {% if session["user_id"] %}
-                        <a href="#" class="btn btn-dark">Edit Post</a>
-                        <a href="{{ url_for('deletePost',id=card.card_id)}}" class="btn alignbtn btn-dark">Delete Post</a>
+                        <a href="{{ url_for('editPost',id=card.card_id)}}" class="btn mt-4  btnalign btn-dark">Edit Post</a>
+                        <a href="{{ url_for('deletePost',id=card.card_id)}}" class="btn mt-4 btnalign btn-dark">Delete Post</a>
                     
                     {% endif %}
                      
