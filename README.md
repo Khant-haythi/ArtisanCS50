@@ -11,7 +11,7 @@ The meaning of website name, *the Aspiration to Artisan* is that lets decorate t
 - HTML 
 * CSS
 + BOOTSTRAP 5.2
-- Jinja2
+- Jinja2 3.1.2
 
 ## Installation
 If you are familiar with Github, you can down this from git clone
