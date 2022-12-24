@@ -15,7 +15,7 @@ The meaning of website name, *the Aspiration to Artisan* is that lets decorate t
 - Jinja2 3.1.2
 ## What can we Do? :monocle_face:
 For Register User:
-+ Can read Blog Post from other users :heavy_check_mark:
++ Can read Blog Post by other users :heavy_check_mark:
 + Can create their own Posts :heavy_check_mark:
 + Can Edit their post if they want to make changes or add something :heavy_check_mark:
 + Can delete their post if they don't want :heavy_check_mark:
