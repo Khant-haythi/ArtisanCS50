@@ -15,7 +15,7 @@ The meaning of website name, *the Aspiration to Artisan* is that lets decorate t
 - Jinja2 3.1.2
 
 <<<<<<< HEAD
-## Installation
+## Installation  
 If you are familiar with Github, you can down this from git clone
 Step 1 : Open Git Bash and clone the project to the location where you want 
 
@@ -54,7 +54,7 @@ python run.py
  http://127.0.0.1:5000
 ```
 ![Image for how to launch website](samplerun.png)
->>>>>>> 9b34477b28781cab981e7281558ec7ad4832a5ed
+
 
 ## Table of Contents
 
