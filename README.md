@@ -13,6 +13,7 @@ The meaning of website name, *the Aspiration to Artisan* is that lets decorate t
 * CSS
 + BOOTSTRAP 5.2
 - Jinja2 3.1.2
+
 ## What can we Do? :monocle_face:
 For Register User:
 + Can read Blog Post by other users :heavy_check_mark:
@@ -24,7 +25,9 @@ For Unregister User:
 - Can read Blog Post by other users :heavy_check_mark:
 
 ## Installation
-If you are familiar with Github, you can download this project by git clone
+If you are familiar with Github, you can download this project by git clone.
+Step 1 : Open Git Bash and clone the project to the location where you want 
+$ git clone https://github.com/Khant-haythi/CS50Artisan.git
 
 
 
