@@ -50,5 +50,6 @@ python run.py
 ![Image for how to launch website](samplerun.png)
 
 
-## Table of Contents
+## Project Structure
+
 
