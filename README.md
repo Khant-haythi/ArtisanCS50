@@ -27,7 +27,8 @@ For Unregister User:
 ## Installation
 If you are familiar with Github, you can download this project by git clone.
 Step 1 : Open Git Bash and clone the project to the location where you want 
-$ git clone https://github.com/Khant-haythi/CS50Artisan.git
+
+> $ git clone https://github.com/Khant-haythi/CS50Artisan.git
 
 
 
