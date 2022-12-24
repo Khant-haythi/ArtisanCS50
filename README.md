@@ -24,7 +24,8 @@ For Unregister User:
 - Can read Blog Post by other users :heavy_check_mark:
 
 ## Installation
-If you are familiar with Github, you can download this project from git clone.
+If you are familiar with Github, you can download this project by git clone
+
 
 
 ## Table of Contents
