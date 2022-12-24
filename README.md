@@ -3,7 +3,7 @@
 
 #### Video Demo
 ## Description
-The meaning of website name, *the Aspiration to Artisan* is that lets decorate the wonderful world :earth_asia: with the imagination and desire of artisans:standing_man: by doing what they loved.So I decided to create a web application that can read blogs from different users :boy::girl: and can also create a blog post by themselves to share their ideas about handicrafts and the DIY things that everyone can do at home.Besides, this is my final project for CS50's Introduction to Computer Science.
+The meaning of website name, *the Aspiration to Artisan* is that lets decorate the wonderful world :earth_asia: with the imagination and desire of artisans:standing_man: by doing what they loved.So I decided to create a web application that can read blogs from different users :boy::girl: and can also create a blog post by themselves to share their ideas about handicrafts and the DIY things that everyone can do at home.When I was designing the UI for Artisan, I wanted it to be both simple and charming. As a result, I decided to use brown and light grey colors on my UI. Besides, this is my final project for CS50's Introduction to Computer Science.
 
 ## Built with what? :hammer_and_wrench:
 - Python 3.11.0
