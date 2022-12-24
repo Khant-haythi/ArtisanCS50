@@ -27,12 +27,16 @@ For Unregister User:
 ## Installation
 If you are familiar with Github, you can download this project by git clone.
 
-1. Open Git Bash and clone the project to the location where you want 
+**1. Open Git Bash and clone the project to the location where you want **
 
 ```
 $ git clone https://github.com/Khant-haythi/CS50Artisan.git
 ```
+**2. Then use your favourite IDE to open this clone folder . I prefer vs code.
 
-
+**3. Next, choose 
+```
+New Terminal from Terminal tag
+```
 ## Table of Contents
 
