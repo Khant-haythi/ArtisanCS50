@@ -15,6 +15,7 @@ The meaning of website name, *the Aspiration to Artisan* is that lets decorate t
 - Jinja2 3.1.2
 
 ## What can we Do? :monocle_face:
+To become register user, you can create account and then login.
 ### For Register User:
 + Can read Blog Post by other users :heavy_check_mark:
 + Can create their own Posts :heavy_check_mark:
