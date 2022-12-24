@@ -14,6 +14,9 @@ The meaning of website name, *the Aspiration to Artisan* is that lets decorate t
 
 ## Installation
 If you are familiar with Github, you can down this from git clone
+Step 1 : Open Git Bash and clone the project to the location where you want 
+
+$ git clone https://github.com/Khant-haythi/CS50Artisan.git
 
 ## Table of Contents
 
