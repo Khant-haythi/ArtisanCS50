@@ -14,13 +14,6 @@ The meaning of website name, *the Aspiration to Artisan* is that lets decorate t
 + BOOTSTRAP 5.2
 - Jinja2 3.1.2
 
-<<<<<<< HEAD
-## Installation  
-If you are familiar with Github, you can down this from git clone
-Step 1 : Open Git Bash and clone the project to the location where you want 
-
-$ git clone https://github.com/Khant-haythi/CS50Artisan.git
-=======
 ## What can we Do? :monocle_face:
 For Register User:
 + Can read Blog Post by other users :heavy_check_mark:
