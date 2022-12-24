@@ -24,19 +24,29 @@ For Register User:
 For Unregister User:
 - Can read Blog Post by other users :heavy_check_mark:
 
-## Installation
+## Installation and How to Run 
 If you are familiar with Github, you can download this project by git clone.
 
-**1.Open Git Bash and clone the project to the location where you want**
+**1. Open Git Bash and clone the project to the location where you want**
 
 ```
 $ git clone https://github.com/Khant-haythi/CS50Artisan.git
 ```
 **2. Then use your favourite IDE to open this clone folder . I prefer vs code.**
 
-**3. Next, choose 
+**3. Next, choose**
 ```
 New Terminal from Terminal tag
 ```
+**4. When the terminal is open , you can run the project by writing**
+```
+python run.py
+```
+**5. Finally, to see the Aspiration to Artisan website , (Crtl + click) over **
+```
+ http://127.0.0.1:5000
+```
+![Image for how to launch website]()
+
 ## Table of Contents
 
