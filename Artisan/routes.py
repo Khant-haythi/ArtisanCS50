@@ -24,8 +24,8 @@ def register():
         db.session.add(user_to_create)
         db.session.commit()
         
-        flash("Registration Successful")
-        return redirect(url_for('homepage'))
+        flash(f'Registration Successful',category='info')
+        return redirect(url_for('login'))
     if form.errors != {} :
         for err_msg in form.errors.values():
             flash(f'There was an error when creating account : {err_msg}',category='danger')
@@ -50,7 +50,7 @@ def login():
             session["user_id"] = register_user.id
             return redirect(url_for('blog'))
         else:
-            flash ('Username and Password are Incorrect.Please try again!!')
+            flash (f'Username and Password are Incorrect.Please try again!!',category='dangers')
 
 
     return render_template("login.html",form=form)

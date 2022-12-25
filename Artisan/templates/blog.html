@@ -20,7 +20,6 @@
                 <div class="card-body">
                     <h5 class="card-title">{{card.title}}</h5>
                     <h6 class="card-subtitle mb-2 text-">Created at {{card.created_date}} <span>by {{card.author}}</span></h6>
-                   
                     {% if session["user_id"] %}
                         <a href="{{ url_for('editPost',id=card.card_id)}}" class="btn mt-4  btnalign btn-dark">Edit Post</a>
                         <a href="{{ url_for('deletePost',id=card.card_id)}}" class="btn mt-4 btnalign btn-dark">Delete Post</a>

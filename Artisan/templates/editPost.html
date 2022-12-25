@@ -6,35 +6,43 @@
 
 {% block main %}
 
-<div class="container">
-    <div style="margin-left: 400px;">
-    <h3> Edit YOUR BLOG POST </h3>
-    <form  method="post" enctype="multipart/form-data" >
-        {{ form.hidden_tag() }}
-        <div class="col-md-6 ">
-          {{ form.title(class="form-control",placeholder="Enter Title")}}
+<section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <img src="/static/image/wool3.png" class="img-fluid" alt="Phone image" >
         </div>
-        <div class="col-md-6 formpad">
-          {{ form.content(class="form-control",id="exampleFormControlTextarea1", rows="3",placeholder="Content")}}
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <form method="post" enctype="multipart/form-data" >
+              {{ form.hidden_tag() }}    
+            <h3 class="text-center">Edit Your Blog Post</h3>
+          </br>
+            <div class="form-outline mb-4">
+              {{ form.title(class="form-control",placeholder="Enter Title")}}
+            </div>
+            <div class="form-outline mb-4">
+                  {{ form.content(class="form-control",id="exampleFormControlTextarea1", rows="3",placeholder="Content")}}      
+            </div>
+            <div class="form-outline mb-4">
+              {{ form.author(class="form-control",placeholder="Enter Your Name")}} 
+          </div>
+          <div class="form-outline mb-4">
+              <label for="formFile" class="form-label">Please Choose Your image that you want to upload</label>          
+              {{ form.image(class="form-control-file",type="file", id="formFile",placeholder="Image")}}
+          </div>
+          <div class="form-outline mb-4">
+              {{ form.created_date(class="form-control",placeholder="Content")}}
+          </div>
+          <div class="form-outline mb-4">
+              {{ form.create(class="btn button-56 btn-floating mx-1 ")}}
+          </div>
+  
+           
+  
+          </form>
         </div>
-        <div class="col-md-6 formpad">
-            {{ form.author(class="form-control",placeholder="Enter Your Name")}}
-        </div>
-        <div class="col-md-6 formpad">
-            <label for="formFile" class="form-label">Please Choose Your image that you want to upload</label>          
-            {{ form.image(class="form-control-file",type="file", id="formFile",placeholder="Image")}}
-          </div> 
-        <div class="col-md-6 formpad">
-            {{ form.created_date(class="form-control",placeholder="Content")}}
-        </div>
-        <div class="formpad">
-            {{ form.create(class="btn button-56 buttonpad ")}} 
-        </div>
-
-    </form>
-</div>
-</div>
-                   
-                     
+      </div>
+    </div>
+  </section>
               
 {% endblock %}
