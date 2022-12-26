@@ -5,7 +5,9 @@
 ## Description:
 - The meaning of website name, *the Aspiration to Artisan* is that lets decorate the wonderful world :earth_asia: with the imagination and desire of artisans:standing_man: by doing what they loved.So I decided to create a web application that can read blogs from different users :boy::girl: and can also create a blog post by themselves to share their ideas about handicrafts and the DIY things that everyone can do at home.Besides, this is my final project for CS50's Introduction to Computer Science.
 
-- I used Model-View-Controller(MVC) framework for designing my web application.
+- I used the Model-View-Controller(MVC) framework for designing my web application.In the templates folder, I gather all the .html files and jinja templates to represent the user interface of my website. In the static folder, there are an image folder that includes all the images of Artisan, styles.css which is the backbone for styling HTML elements on my web pages, and a .js file that generate the slideshow for my Home Page. And the .py files are the Controller of my website. They decide what to render for each route and what data to show for specific users. The __init__.py is to configure and initialize my entire web app including DATABASE_URI , SECRET_KEY, and UPLOAD_FOLDER. I use the form.py to define the RegisterForm, LoginForm, and BLogPostForm that accept data from users. The model.py is used to define the essential database model for my web app. Finally, routes.py is the cornerstone of my project because it defines all the required functions for the appropriate routes of my website. Additionally, my main database, ArtisanInfo.db is inside the instance folder.
+
+
 ## Built with what? :hammer_and_wrench:
 - Python 3.11.0
 * Flask 2.2.2
