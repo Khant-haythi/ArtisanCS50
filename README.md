@@ -45,7 +45,7 @@ New Terminal from Terminal tag
 ```
 python run.py
 ```
-**5. Finally, to see the Aspiration to Artisan website , (Crtl + click) over**
+**5. Finally, to see the Aspiration to Artisan website , (Ctrl + click) over**
 ```
  http://127.0.0.1:5000
 ```
